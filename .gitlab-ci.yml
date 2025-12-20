@@ -1,0 +1,13 @@
+image: registry.gitlab.local/root/gleam-ci-runtime/gleam-ci:otp27
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - gleam --version
+    - rebar3 --version
+    - erl -version
+    - gleam build
+    - gleam test

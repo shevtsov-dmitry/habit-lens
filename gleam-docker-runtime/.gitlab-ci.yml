@@ -1,0 +1,20 @@
+image: registry.gitlab.local/root/gleam-ci-runtime/gleam-ci:otp27
+
+stages:
+  - test
+
+variables:
+  GLEAM_ENV: prod
+
+cache:
+  key: gleam
+  paths:
+    - build/
+    - ~/.cache/rebar3
+    - ~/.cache/gleam
+
+test:
+  stage: test
+  script:
+    - gleam deps download
+    - gleam test
