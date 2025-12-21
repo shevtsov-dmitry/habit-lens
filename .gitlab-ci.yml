@@ -1,37 +1,41 @@
 default:
-  image: registry.gitlab.local/root/gleam-ci-runtime/gleam-ci:otp27
+    image: registry.gitlab.local/root/gleam-ci-runtime/gleam-ci:otp27
 
 stages:
-  - verify_runtime
-  - test
+    - verify_runtime
+    - test
 
 verify_runtime:
-  stage: verify_runtime
-  script:
-    - gleam --version
-    - rebar3 --version
-    - erl -version
-  rules:
-    - changes:
-        - backend/**/*
-        - cli_client/**/*
-        - gleam-docker-runtime/**/*
+    stage: verify_runtime
+    script:
+        - gleam --version
+        - rebar3 --version
+        - erl -version
+    rules:
+        - changes:
+              - backend/**/*
+              - cli_client/**/*
+              - gleam-docker-runtime/**/*
 
 test:backend:
-  script:
-    - cd backend
-    - gleam test
-  rules:
-    - changes:
-        - backend/**/*
+    script:
+        - cd backend
+        - gleam run &
+        - sleep 3
+        - gleam test
+    after_script:
+        - killall beam.smp || true
+    rules:
+        - changes:
+              - backend/**/*
 
 test:cli_client:
-  script:
-    - cd cli_client
-    - gleam test
-  rules:
-    - changes:
-        - cli_client/**/*
+    script:
+        - cd cli_client
+        - gleam test
+    rules:
+        - changes:
+              - cli_client/**/*
 
 # cache:
 #   paths:
