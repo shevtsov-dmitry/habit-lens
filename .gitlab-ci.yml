@@ -21,7 +21,7 @@ test:backend:
     script:
         - cd backend
         - gleam run &
-        - sleep 3
+        - sleep 2
         - gleam test
     after_script:
         - killall beam.smp || true
