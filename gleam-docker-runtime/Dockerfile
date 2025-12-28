@@ -10,6 +10,8 @@ RUN apk add --no-cache \
     bash \
     curl \
     git \
+    nodejs \
+    npm \
     ca-certificates \
     build-base
 
