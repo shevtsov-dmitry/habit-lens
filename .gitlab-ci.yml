@@ -1,0 +1,21 @@
+default:
+  image: vegardit/graalvm-maven:latest-java25
+  variables:
+    MAVEN_USER_HOME: "$CI_PROJECT_DIR/.m2"
+  cache:
+    key: maven
+    paths:
+      - .m2/repository
+
+#stages:
+#  -
+
+test:backend:
+  script:
+    - cd backend
+    - ./mvnw test
+
+
+cache:
+  paths:
+    /home/shd/.m2
