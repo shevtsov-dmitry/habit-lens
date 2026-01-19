@@ -20,8 +20,11 @@ deploy:client:
   cache:
     key: node
     paths:
-      - frontend/node_modules
+      - client/node_modules
   script:
     - cd client
+    - curl -fsSL https://bun.sh/install | bash
+    - export PATH="$HOME/.bun/bin:$PATH"
     - bun i
     - bun vite build
+    - bun vite preview
