@@ -1,4 +1,9 @@
-default:
+#default:
+
+#stages:
+#  -
+
+test:backend:
   image: vegardit/graalvm-maven:latest-java25
   variables:
     MAVEN_USER_HOME: "$CI_PROJECT_DIR/.m2"
@@ -6,16 +11,17 @@ default:
     key: maven
     paths:
       - .m2/repository
-
-#stages:
-#  -
-
-test:backend:
   script:
     - cd backend
     - ./mvnw test
 
-
-cache:
-  paths:
-    /home/shd/.m2
+deploy:client:
+  image: node:lts
+  cache:
+    key: node
+    paths:
+      - frontend/node_modules
+  script:
+    - cd client
+    - bun i
+    - bun vite build
