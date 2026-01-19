@@ -1,11 +1,14 @@
-import {type ReactElement} from 'react'
 import './App.css'
+import * as React from "react";
+import Timer from "./components/timer/Timer.tsx";
+import Header from "./components/header/Header.tsx";
 
-const App = (): ReactElement => {
+const App: React.FC = () => {
 
     return (
         <div className={"w-screen h-screen bg-neutral-600"}>
-            <h1 className={"text-red-500 w-full text-center"}>test</h1>
+            <Header/>
+            <Timer/>
         </div>
     )
 }
