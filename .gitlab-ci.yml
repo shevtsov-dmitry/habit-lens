@@ -15,7 +15,7 @@ test:backend:
     - cd backend
     - ./mvnw test
 
-deploy:client:
+pages:
   image: node:lts
   cache:
     key: node
@@ -25,6 +25,11 @@ deploy:client:
     - cd client
     - curl -fsSL https://bun.sh/install | bash
     - export PATH="$HOME/.bun/bin:$PATH"
-    - bun i
+    - bun install
     - bun vite build
-    - bun vite preview
+    - mv dist ../public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
