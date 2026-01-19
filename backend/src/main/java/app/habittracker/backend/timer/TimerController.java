@@ -14,7 +14,8 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("api/v0/timers")
 public class TimerController {
 
-  private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+  private final ScheduledExecutorService executor =
+      Executors.newSingleThreadScheduledExecutor(Thread.ofVirtual().name("timer-sse-").factory());
 
   @GetMapping
   public SseEmitter timer() {
