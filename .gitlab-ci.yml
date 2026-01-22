@@ -16,11 +16,9 @@ test:backend:
     - ./mvnw test
 
 pages:
-  image: node:lts
+  image: oven/bun:latest
   script:
     - cd client
-    - curl -fsSL https://bun.sh/install | bash
-    - export PATH="$HOME/.bun/bin:$PATH"
     - export VITE_BASE_PATH="/habit-lens/"
     - bun install
     - bun vite build
