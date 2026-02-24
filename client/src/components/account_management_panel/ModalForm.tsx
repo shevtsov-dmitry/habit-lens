@@ -1,0 +1,70 @@
+interface WrapperProps {
+  children: React.ReactNode;
+}
+
+export const Wrapper: React.FC<WrapperProps> = ({children}) => {
+  return <>
+  </>
+}
+
+interface TitleProps {
+  title: string;
+}
+
+export const Title: React.FC<TitleProps> =
+    ({title}) => {
+      return <>
+        <h1>{title}</h1>
+      </>
+    }
+
+interface TextFieldProps {
+  label: string;
+  type?: 'text' | 'email';
+  placeholder?: string;
+  value?: string;
+}
+
+export const TextField: React.FC<TextFeildProps> = ({label, type = 'text', placeholder = '', value = ''}) => {
+  return <div>
+    <p placeholder={placeholder}>{value}</p>
+  </div>
+}
+
+interface PasswordFieldProps {
+  label: string;
+  placeholder?: string;
+  value?: string;
+}
+
+export const PasswordField: React.FC<PasswordFieldProps> = ({}) => {
+  return <div>
+    <input type="password" placeholder={placeholder} value={value}/>
+  </div>
+}
+
+
+interface ButtonProps {
+  type: ButtonType
+}
+
+export enum ButtonType {
+  SUBMIT,
+  RESET
+}
+
+export const Button: React.FC<ButtonProps> = ({type}) => {
+  if (type === ButtonType.SUBMIT) {
+    return <button type="submit">Submit</button>;
+  } else if (type === ButtonType.RESET) {
+    return <button type="reset">Reset</button>;
+  }
+}
+
+interface SpacerProps {
+  spaceRangeInPercentageFloat?: number;
+}
+
+export const Spacer: React.FC<SpacerProps> = ({spaceRangeInPercentageFloat = 0.1}) => {
+  return <div style={{height: `${spaceRangeInPercentageFloat * 100}%`}}></div>
+}

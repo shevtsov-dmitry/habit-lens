@@ -8,6 +8,7 @@ const App: React.FC = () => {
     return (
         <div className={"w-screen h-screen bg-neutral-600"}>
             <Header/>
+          <AccountManagmentPanel/>
             <Timer/>
         </div>
     )
