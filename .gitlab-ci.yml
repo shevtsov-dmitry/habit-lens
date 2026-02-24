@@ -21,7 +21,6 @@ pages:
   stage: deploy
   script:
     - cd client
-    - export VITE_BASE_PATH="/habit-lens/"
     - bun install
     - bun vite build
     - mv dist ../public
