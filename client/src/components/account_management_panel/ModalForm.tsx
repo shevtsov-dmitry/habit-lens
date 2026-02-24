@@ -2,48 +2,58 @@ interface WrapperProps {
   children: React.ReactNode;
 }
 
-export const Wrapper: React.FC<WrapperProps> = ({ children }) => {
-  return <div>
+export const Wrapper: React.FC<WrapperProps> = ({ children }) => (
+  <div>
     {children}
   </div>
-}
+)
 
 interface TitleProps {
-  title: string;
+  children: React.ReactNode;
 }
 
-export const Title: React.FC<TitleProps> =
-  ({ title }) => {
-    return <>
-      <h1>{title}</h1>
-    </>
-  }
+export const Title: React.FC<TitleProps> = ({ children }) => (
+  <div>
+    <h2>{children}</h2>
+  </div>
+)
 
 interface TextFieldProps {
-  label: string;
   type?: 'text' | 'email';
+  children?: React.ReactNode;
+}
+
+export const TextField: React.FC<TextFieldProps> = ({ type, children }) => (
+  <div>
+    <p>{children}</p>
+  </div>
+)
+
+interface TextInputProps {
   placeholder?: string;
   value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const TextField: React.FC<TextFieldProps> = ({ label, type = 'text', placeholder = '', value = '' }) => {
-  return <div>
-    <p placeholder={placeholder}>{value}</p>
+export const TextInput = ({ placeholder, value }: TextInputProps) => (
+  <div>
+    <input type="text" placeholder={placeholder} value={value} />
   </div>
-}
+)
 
-interface PasswordFieldProps {
-  label: string;
-  placeholder?: string;
-  value?: string;
-}
+// ! CURRENTLY USING ONLY EMAIL AUTHENTICATION
 
-export const PasswordField: React.FC<PasswordFieldProps> = ({ label, placeholder, value = '' }) => {
-  return <div>
-    <input type="password" placeholder={placeholder} value={value} />
-  </div>
-}
+// interface PasswordFieldProps {
+//   label: string;
+//   placeholder?: string;
+//   value?: string;
+// }
 
+// export const PasswordInput: React.FC<PasswordFieldProps> = ({ label, placeholder, value = '' }) => (
+//   <div>
+//     <input type="password" placeholder={placeholder} value={value} />
+//   </div>
+// )
 
 interface ButtonProps {
   type: ButtonType

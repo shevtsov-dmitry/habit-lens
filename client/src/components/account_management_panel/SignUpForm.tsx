@@ -7,6 +7,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({}) => {
 
   return (
     <>
+    <Form.Title>SignUp</Form.Title>
     </>
   )
 
