@@ -61,11 +61,3 @@ export const Button: React.FC<ButtonProps> = ({ type }) => {
     return <button type="reset">Reset</button>;
   }
 }
-
-interface SpacerProps {
-  spaceRangeInPercentageFloat?: number;
-}
-
-export const Spacer: React.FC<SpacerProps> = ({ spaceRangeInPercentageFloat = 0.3 }) => {
-  return <div style={{ height: `${spaceRangeInPercentageFloat * 100}%` }}></div>
-}
