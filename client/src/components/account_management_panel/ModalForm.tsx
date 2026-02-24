@@ -1,4 +1,4 @@
-interface WrapperProps {
+interface WrapperProps extends React.HTMLAttributes<HTMLFormElement> {
   children: React.ReactNode;
 }
 
@@ -8,7 +8,7 @@ export const Wrapper: React.FC<WrapperProps> = ({ children }) => (
   </div>
 )
 
-interface TitleProps {
+interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
 }
 
@@ -18,7 +18,7 @@ export const Title: React.FC<TitleProps> = ({ children }) => (
   </div>
 )
 
-interface TextFieldProps {
+interface TextFieldProps extends React.HTMLAttributes<HTMLParagraphElement> {
   type?: 'text' | 'email';
   children?: React.ReactNode;
 }
@@ -29,7 +29,7 @@ export const TextField: React.FC<TextFieldProps> = ({ type, children }) => (
   </div>
 )
 
-interface TextInputProps {
+interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -41,21 +41,18 @@ export const TextInput = ({ placeholder, value }: TextInputProps) => (
   </div>
 )
 
-// ! CURRENTLY USING ONLY EMAIL AUTHENTICATION
+interface PasswordInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  placeholder?: string;
+  value?: string;
+}
 
-// interface PasswordFieldProps {
-//   label: string;
-//   placeholder?: string;
-//   value?: string;
-// }
+export const PasswordInput: React.FC<PasswordInputProps> = ({  placeholder, value = '' }) => (
+  <div>
+    <input type="password" placeholder={placeholder} value={value} />
+  </div>
+)
 
-// export const PasswordInput: React.FC<PasswordFieldProps> = ({ label, placeholder, value = '' }) => (
-//   <div>
-//     <input type="password" placeholder={placeholder} value={value} />
-//   </div>
-// )
-
-interface ButtonProps {
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   type: ButtonType
 }
 
