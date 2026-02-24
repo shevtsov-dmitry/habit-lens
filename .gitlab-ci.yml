@@ -22,6 +22,7 @@ pages:
   script:
     - cd client
     - bun install
+    - export VITE_BASE_PATH="/habit-lens/"
     - bun vite build
     - mv dist ../public
   artifacts:
