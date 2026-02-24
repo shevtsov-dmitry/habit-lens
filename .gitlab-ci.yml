@@ -3,9 +3,10 @@ default:
 
 stages:
   - test
-
+  - deploy
 
 test:backend:
+  stage: test
   variables:
     MAVEN_USER_HOME: "$CI_PROJECT_DIR/.m2"
   cache:
@@ -17,6 +18,7 @@ test:backend:
     - ./mvnw test
 
 pages:
+  stage: deploy
   script:
     - cd client
     - export VITE_BASE_PATH="/habit-lens/"
