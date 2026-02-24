@@ -3,12 +3,22 @@ import * as Form from "./ModalForm"
 interface SignUpFormProps {
 }
 
-const SignUpForm: React.FC<SignUpFormProps> = ({}) => {
+const SignUpForm: React.FC<SignUpFormProps> = ({ }) => {
+
+  function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+  }
 
   return (
-    <>
-    <Form.Title>SignUp</Form.Title>
-    </>
+    <Form.Wrapper onSubmit={handleFormSubmit}>
+      <Form.Title>Sign Up Your Account</Form.Title>
+      <Form.TextField>Email Address</Form.TextField>
+      <Form.TextInput placeholder="Enter Email" required />
+      <Form.TextField>Password "("optional")"</Form.TextField>
+      <Form.PasswordInput placeholder="Enter Password" />
+      <Form.TextInput placeholder="Enter Password (optional)" />
+      <Form.Button type={Form.ButtonType.SUBMIT} />
+    </Form.Wrapper>
   )
 
 }

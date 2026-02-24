@@ -9,10 +9,14 @@ interface LoginFormProps {
 const LoginForm: React.FC<LoginFormProps> = ({ }) => {
 
   const navigate = useNavigate()
+  
+  function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+  }
 
   return (
     <>
-      <Form.Wrapper>
+      <Form.Wrapper onSubmit={handleFormSubmit}>
         <Form.Title>Login</Form.Title>
         <Form.TextField>Enter Email</Form.TextField>
         <Form.TextInput placeholder="Enter Email" />
