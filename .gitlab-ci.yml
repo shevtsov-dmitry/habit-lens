@@ -1,0 +1,28 @@
+#default:
+
+#stages:
+#  -
+
+test:backend:
+  image: vegardit/graalvm-maven:latest-java25
+  variables:
+    MAVEN_USER_HOME: "$CI_PROJECT_DIR/.m2"
+  cache:
+    key: maven
+    paths:
+      - .m2/repository
+  script:
+    - cd backend
+    - ./mvnw test
+
+pages:
+  image: oven/bun:latest
+  script:
+    - cd client
+    - export VITE_BASE_PATH="/habit-lens/"
+    - bun install
+    - bun vite build
+    - mv dist ../public
+  artifacts:
+    paths:
+      - public
