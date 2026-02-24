@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: '/habit-lens/',
+    base: process.env.VITE_BASE_PATH || '/',
     plugins: [
         tailwindcss(),
         react({
