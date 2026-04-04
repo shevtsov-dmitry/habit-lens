@@ -3,5 +3,4 @@ enum FormType {
     REGISTER = 'register'
 }
 
-export default
-rmType
+export default FormType

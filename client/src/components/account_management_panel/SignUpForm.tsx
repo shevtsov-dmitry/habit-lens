@@ -1,9 +1,6 @@
 import * as Form from "./ModalForm"
 
-interface SignUpFormProps {
-}
-
-const SignUpForm: React.FC<SignUpFormProps> = ({ }) => {
+const SignUpForm = ({ }) => {
 
   function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()

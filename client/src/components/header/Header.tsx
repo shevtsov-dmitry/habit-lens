@@ -1,9 +1,7 @@
 import * as React from "react";
 
-interface Header {
-}
 
-const Header: React.FC<Header> = () => {
+const Header = () => {
     return <div>
 
     </div>

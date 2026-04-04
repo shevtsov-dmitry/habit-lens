@@ -3,10 +3,8 @@ import * as Form from "./ModalForm"
 import SignUpForm from "./SignUpForm";
 import { Route, Routes, useNavigate } from "react-router";
 
-interface LoginFormProps {
-}
 
-const LoginForm: React.FC<LoginFormProps> = ({ }) => {
+const LoginForm = ({ } : {}) => {
 
   const navigate = useNavigate()
   

@@ -1,10 +1,7 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
 
-interface TimerProps {
-}
-
-const Timer: React.FC<TimerProps> = () => {
+const Timer = () => {
 
     const serverUrl = "http://localhost:8900/api/v0/timers";
 

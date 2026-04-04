@@ -1,10 +1,8 @@
 import { useState } from "react"
 import * as Form from "./ModalForm"
 
-interface EmailCodeConfirmationFormProps {
-}
 
-const EmailCodeConfirmationForm: React.FC<EmailCodeConfirmationFormProps> = () => {
+const EmailCodeConfirmationForm = () => {
 
  const [codeInput, setCodeInput] = useState<string>("")
   

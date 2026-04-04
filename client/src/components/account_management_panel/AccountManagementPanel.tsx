@@ -1,12 +1,8 @@
 import { Route, Routes, useNavigate } from "react-router";
 import LoginForm from "./LoginForm";
-import SignUpForm from "./SignUpForm";
 
-interface AccountManagementPanelProps {
 
-}
-
-const AccountManagementPanel: React.FC<AccountManagementPanelProps> = () => {
+const AccountManagementPanel = () => {
 
   const navigate = useNavigate()
 
